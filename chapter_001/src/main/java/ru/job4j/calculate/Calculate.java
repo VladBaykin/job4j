@@ -10,7 +10,7 @@ package ru.job4j.calculate;
 public class Calculate {
 
     /**
-     * В этом методе происходит вичисление...
+     * В этом методе происходит вычисление...
      * @param args - без аргументов.
      */
     public static void main(String[] args) {
