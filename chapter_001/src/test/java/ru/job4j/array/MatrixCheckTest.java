@@ -1,5 +1,6 @@
 package ru.job4j.array;
 
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -25,5 +26,17 @@ public class MatrixCheckTest {
         };
         boolean result = MatrixCheck.monoVertical(input, 2);
         assertTrue(result);
+    }
+
+    @Test
+    public void whenDiagonal() {
+        char[][] input = {
+                {'X', ' ', ' '},
+                {' ', 'X', ' '},
+                {' ', ' ', 'X'},
+        };
+        char[] result = MatrixCheck.extractDiagonal(input);
+        char[] expect = {'X', 'X', 'X'};
+        Assert.assertArrayEquals(expect, result);
     }
 }
