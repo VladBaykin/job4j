@@ -42,7 +42,7 @@ public class FindLoopTest {
         int start = 2;
         int finish = 4;
         int result = FindLoop.indexOf(input, value, start, finish);
-        int expect = - 1;
+        int expect = -1;
         assertThat(result, is(expect));
     }
 }
