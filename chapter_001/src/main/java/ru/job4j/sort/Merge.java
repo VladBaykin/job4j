@@ -6,7 +6,29 @@ public class Merge {
     public int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length + right.length];
         int resultIndex = 0;
-        for (int i = 0, j = 0; i < left.length || j < right.length;) {
+        int i = 0;
+        int j = 0;
+        while (i < left.length && j < right.length) {
+            if (left[i] < right[j]) {
+                result[resultIndex] = left[i];
+                i++;
+            } else {
+                result[resultIndex] = right[j];
+                j++;
+            }
+            resultIndex++;
+        }
+        while (i < left.length) {
+            result[resultIndex] = left[i];
+            resultIndex++;
+            i++;
+        }
+        while (j < right.length) {
+            result[resultIndex] = right[j];
+            resultIndex++;
+            j++;
+        }
+        /* for (int i = 0, j = 0; i < left.length || j < right.length;) {
             if (i < left.length && j < right.length) {
                 if (left[i] < right[j]) {
                     result[resultIndex] = left[i];
@@ -25,6 +47,7 @@ public class Merge {
             resultIndex++;
 
         }
+         */
         return result;
     }
 
