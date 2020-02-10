@@ -4,8 +4,8 @@ public class TrgArea {
 
     public static double area(double a, double b, double c) {
 
-        double semiPer = (a + b + c) / 2;
-        return Math.sqrt(semiPer * (semiPer - a) * (semiPer - b) * (semiPer - c));
+        double semiperimeter = (a + b + c) / 2;
+        return Math.sqrt(semiperimeter * (semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c));
     }
 
     public static void main(String[] args) {
