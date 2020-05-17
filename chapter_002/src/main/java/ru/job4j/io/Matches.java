@@ -15,15 +15,15 @@ class Player {
 }
 public class Matches {
     static int match = 11;
+    static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
         Player player1 = new Player();
         Player player2 = new Player();
-        Scanner input = new Scanner(System.in);
         System.out.print("Игрок 1, введите имя: ");
         player1.setName(input.nextLine());
         System.out.print("Игрок 2, введите имя: ");
         player2.setName(input.nextLine());
-
         System.out.println("Игра начинается.");
         System.out.println();
 
@@ -37,7 +37,6 @@ public class Matches {
             System.out.println("Количество спичек: " + match);
             System.out.println();
             System.out.print(player.getName() + ", возмите от 1 до 3 спичек: ");
-            Scanner input = new Scanner(System.in);
             int select = Integer.parseInt(input.nextLine());
             if (select < 1 || select > 3) {
                 System.out.print("Ошибка! Можно брать от 1 до 3 спичек.");
