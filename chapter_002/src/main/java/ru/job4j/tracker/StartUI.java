@@ -26,8 +26,7 @@ public class StartUI {
                 String id = scanner.nextLine();
                 System.out.println("Enter new item: ");
                 Item item = new Item(scanner.nextLine());
-                if (tracker.findById(id) != null) {
-                    tracker.replace(id, item);
+                if (tracker.replace(id, item)) {
                     System.out.println("Item edited");
                 } else {
                     System.out.println("Id not found!");
