@@ -22,7 +22,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
-        String[] answers = {item.getId(),"replaced item"};
+        String[] answers = {item.getId(), "replaced item"};
         StartUI.editItem(new StubInput(answers), tracker);
         Item replaced = tracker.findById(item.getId());
         assertEquals("replaced item", replaced.getName());

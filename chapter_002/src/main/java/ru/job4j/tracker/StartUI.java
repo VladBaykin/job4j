@@ -8,7 +8,7 @@ public class StartUI {
         Item item = new Item(name);
         tracker.add(item);
     }
-    public static void findAllItem (Input input, Tracker tracker) {
+    public static void findAllItem(Input input, Tracker tracker) {
         System.out.println("=== All Item ===");
         for (Item item : tracker.findAll()) {
             System.out.println(item.getName());
