@@ -8,34 +8,40 @@ public class StartUITest {
 
     @Test
     public void createItem() {
-        String[] answers = {"Fix PC"};
-        Input input = new StubInput(answers);
+        Input in = new StubInput(new String[] {"0", "Item name", "1"});
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item("Fix PC");
-        assertEquals(expected.getName(), created.getName());
+        UserAction[] actions = {
+                new CreateAction(),
+                new ExitAction()
+        };
+        new StartUI().init(in, tracker, actions);
+        assertEquals("Item name", tracker.findAll()[0].getName());
     }
 
     @Test
     public void editItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {item.getId(), "replaced item"};
-        StartUI.editItem(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertEquals("replaced item", replaced.getName());
+        Item item = tracker.add(new Item("Replaced item"));
+        String replacedName = "New item name";
+        Input in = new StubInput(new String[] {"0", item.getId(), replacedName, "1"});
+        UserAction[] actions = {
+            new EditAction(),
+            new ExitAction()
+        };
+        new StartUI().init(in, tracker, actions);
+        assertEquals(replacedName, tracker.findById(item.getId()).getName());
     }
 
     @Test
     public void deleteItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {item.getId(), "deleted item"};
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(item.getId());
-        assertNull(deleted);
+        Item item = tracker.add(new Item("Deleted item"));
+        Input in = new StubInput(new String[] {"0", item.getId(), "1"});
+        UserAction[] actions = {
+                new DeleteAction(),
+                new ExitAction()
+        };
+        new StartUI().init(in, tracker, actions);
+        assertNull(tracker.findById(item.getId()));
     }
 }
