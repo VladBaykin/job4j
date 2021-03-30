@@ -31,8 +31,8 @@ public class UserTest {
     @Test
     public void whenEqualNames() {
         Set<User> users = new TreeSet<>();
+        users.add(new User("Ivan", 32));
         users.add(new User("Ivan", 31));
-        users.add(new User("Ivan", 20));
         Iterator<User> it = users.iterator();
         assertEquals(new User("Ivan", 31), it.next());
         assertEquals(new User("Ivan", 32), it.next());
