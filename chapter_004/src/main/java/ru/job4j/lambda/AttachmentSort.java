@@ -11,7 +11,7 @@ public class AttachmentSort {
                 new Attachment("image 2", 34),
                 new Attachment("image 3", 13)
         );
-        Comparator<Attachment> comparator = (left, right) -> left.getSize() - right.getSize();
+        Comparator<Attachment> comparator = (left, right) -> Integer.compare(left.getSize(), right.getSize());
         attachments.sort(comparator);
         System.out.println(attachments);
 
@@ -19,6 +19,7 @@ public class AttachmentSort {
         attachments.sort(comparatorName);
         System.out.println(attachments);
 
-        Comparator<Attachment> cmpDescSize = (left, right) -> right.getName().length() - left.getName().length();
+        Comparator<Attachment> cmpDescSize = (left, right) ->
+                Integer.compare(right.getName().length(), left.getName().length());
     }
 }
