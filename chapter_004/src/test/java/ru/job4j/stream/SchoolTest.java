@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static org.junit.Assert.*;
@@ -64,6 +65,21 @@ public class SchoolTest {
         expected.add(new Student(10, "Surname1"));
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void whenConvertToMap() {
+        List<Student> students = List.of(
+                new Student(10, "Surname1"),
+                new Student(30, "Surname1"),
+                new Student(90, "Surname9")
+        );
+        Map<String, Student> result = School.convert(students);
+        Map<String, Student> expected = Map.of(
+               "Surname1", new Student(10, "Surname1"),
+               "Surname9", new Student(90, "Surname9")
+        );
         assertEquals(expected, result);
     }
 }
