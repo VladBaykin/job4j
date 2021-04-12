@@ -10,10 +10,10 @@ public class PhoneDictionaryTest {
 
     @Test
     public void findByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", ""));
-        ArrayList<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertEquals("Arsentev", persons.get(0).getSurname());
     }
 }
